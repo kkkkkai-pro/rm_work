@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: configure Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--preset",
+        "Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake: build Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "${workspaceFolder}/build/Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": "CMake: configure Debug",
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Flash STM32",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$project = 'D:\\RM\\free_os'; $buildDir = Join-Path $project 'build\\Debug'; $elf = Join-Path $buildDir 'FREE_OS.elf'; $cli = 'D:\\bin\\STM32_Programmer_CLI.exe'; if (-not (Test-Path $cli)) { $cli = Join-Path $env:LOCALAPPDATA 'stm32cube\\bundles\\programmer\\2.23.0\\bin\\STM32_Programmer_CLI.exe' }; if (-not (Test-Path $cli)) { Write-Error 'STM32_Programmer_CLI.exe not found. Please install STM32CubeProgrammer and reconnect ST-LINK.'; exit 1 }; & $cli -c port=SWD -w $elf 0x08000000 -v"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": "CMake: build Debug",
+      "dependsOrder": "sequence",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}

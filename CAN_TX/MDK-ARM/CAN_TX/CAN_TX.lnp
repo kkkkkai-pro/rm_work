@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+"can_tx\startup_stm32f407xx.o"
+"can_tx\main.o"
+"can_tx\gpio.o"
+"can_tx\can.o"
+"can_tx\stm32f4xx_it.o"
+"can_tx\stm32f4xx_hal_msp.o"
+"can_tx\stm32f4xx_hal_can.o"
+"can_tx\stm32f4xx_hal_rcc.o"
+"can_tx\stm32f4xx_hal_rcc_ex.o"
+"can_tx\stm32f4xx_hal_flash.o"
+"can_tx\stm32f4xx_hal_flash_ex.o"
+"can_tx\stm32f4xx_hal_flash_ramfunc.o"
+"can_tx\stm32f4xx_hal_gpio.o"
+"can_tx\stm32f4xx_hal_dma_ex.o"
+"can_tx\stm32f4xx_hal_dma.o"
+"can_tx\stm32f4xx_hal_pwr.o"
+"can_tx\stm32f4xx_hal_pwr_ex.o"
+"can_tx\stm32f4xx_hal_cortex.o"
+"can_tx\stm32f4xx_hal.o"
+"can_tx\stm32f4xx_hal_exti.o"
+"can_tx\system_stm32f4xx.o"
+"can_tx\can_app.o"
+"can_tx\gm6020.o"
+--strict --scatter "CAN_TX\CAN_TX.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "CAN_TX.map" -o CAN_TX\CAN_TX.axf

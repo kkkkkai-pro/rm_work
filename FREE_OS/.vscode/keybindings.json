@@ -1,0 +1,18 @@
+[
+  {
+    "key": "ctrl+alt+u",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "Flash STM32"
+    },
+    "when": "workbenchState != 'empty'"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "workbench.action.tasks.runTask",
+    "args": {
+      "task": "Flash STM32"
+    },
+    "when": "workbenchState != 'empty'"
+  }
+]
