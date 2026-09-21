@@ -1,9 +1,9 @@
 #include "can_app.h"
 #include "gm6020.h"
 #include "stm32f4xx_hal.h"
-#include "can.h"      /* 提供 hcan1 的 extern 声明 */
+#include "can.h"     
 
-#include <string.h>   /* memset */
+#include <string.h>   
 
 
 
@@ -16,10 +16,7 @@ static void CAN_Filter_Init(void)
     filter.FilterMode = CAN_FILTERMODE_IDMASK;
     filter.FilterScale = CAN_FILTERSCALE_32BIT;
 
-    /*
-     * ID 和 Mask 都为 0：
-     * 先接收所有 CAN 帧，方便调试。
-     */
+  
     filter.FilterIdHigh = 0x0000U;
     filter.FilterIdLow = 0x0000U;
     filter.FilterMaskIdHigh = 0x0000U;
@@ -28,11 +25,7 @@ static void CAN_Filter_Init(void)
     filter.FilterFIFOAssignment = CAN_RX_FIFO0;
     filter.FilterActivation = ENABLE;
 
-    /*
-     * F407 的 CAN1、CAN2 共用 28 个过滤器组：
-     * CAN1 使用 0~13
-     * CAN2 使用 14~27
-     */
+
     filter.SlaveStartFilterBank = 14U;
 
     /* CAN1 使用过滤器 0 */
@@ -137,10 +130,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     CAN_DispatchFrame(hcan, &rx_header, rx_data);
 }
 
-/*
- * 后续 PID 控制时使用。
- * 当前“只读取数据”的任务可以暂时不调用。
- */
+
 HAL_StatusTypeDef GM6020_SendCurrent(CAN_HandleTypeDef *hcan,
                                      uint8_t motor_id,
                                      int16_t current)

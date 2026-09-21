@@ -4,10 +4,6 @@
 #include "main.h"
 #include "can.h"
 
-/*
- * 如果两个电机都是 ID=1，不需要修改。
- * 如果电机拨码或配置过 ID，在这里改。
- */
 #define CAN1_GM6020_MOTOR_ID    1U
 #define CAN2_GM6020_MOTOR_ID    1U
 

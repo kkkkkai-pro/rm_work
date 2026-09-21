@@ -170,13 +170,7 @@ static void LED_Task(void *argument)
                           &data,
                           pdMS_TO_TICKS(200)) == pdTRUE)
         {
-            /*
-             * 使用拨杆 sw[0] 控制颜色：
-             *
-             * 1 -> 红色
-             * 2 -> 绿色
-             * 3 -> 蓝色
-             */
+            
             if (data.sw[0] == 1U)
             {
                 Led_SetColor(LED_COLOR_RED);
@@ -196,9 +190,6 @@ static void LED_Task(void *argument)
         }
         else
         {
-            /*
-             * 超过 200 ms 没收到有效遥控器数据
-             */
             Led_SetColor(LED_COLOR_OFF);
         }
     }
