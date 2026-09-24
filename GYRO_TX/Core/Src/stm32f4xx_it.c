@@ -277,6 +277,7 @@ void DMA2_Stream2_IRQHandler(void)
   /* USER CODE END DMA2_Stream2_IRQn 1 */
 }
 #endif
+
 /**
   * @brief This function handles DMA2 stream3 global interrupt.
   */

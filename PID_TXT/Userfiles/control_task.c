@@ -17,15 +17,15 @@ volatile float g_target_current;     /* 速度环输出的电流值 */
 volatile uint8_t g_motor_online;     /* 电机在线标志 */
 
 /* PID 参数（角度环） */
-volatile float g_angle_kp   = 8.0f;
+volatile float g_angle_kp   = 18.0f;
 volatile float g_angle_ki   = 0.2f;
-volatile float g_angle_kd   = 0.0f;
+volatile float g_angle_kd   = 0.1f;
 volatile float g_angle_kff  = 0.0f;   /* 前馈系数，先保持 0 */
 volatile float g_angle_deadband  = 0.05f;  /* 死区 ±0.05° */
 volatile float g_angle_int_sep   = 5.0f;   /* 误差 >5° 时不积分 */
 
 /* PID 参数（速度环） */
-volatile float g_speed_kp   = 6.0f;
+volatile float g_speed_kp   = 14.0f;
 volatile float g_speed_ki   = 0.6f;
 volatile float g_speed_kd   = 0.0f;
 
@@ -117,8 +117,8 @@ void MotorControlTask(void const *argument)
         g_target_current = current;
 
         
+        
         GM6020_SendCurrent((int16_t)current);
-
         osDelay(1);
     }
 }

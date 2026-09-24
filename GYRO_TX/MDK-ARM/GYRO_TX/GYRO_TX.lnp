@@ -53,14 +53,14 @@
 "gyro_tx\usbd_ioreq.o"
 "gyro_tx\usbd_cdc.o"
 "gyro_tx\imu_task.o"
-"gyro_tx\mahonyahrs.o"
 "gyro_tx\pid.o"
-"gyro_tx\bsp_imu_pwm.o"
-"gyro_tx\bsp_spi.o"
+"gyro_tx\mahonyahrs.o"
 "gyro_tx\bmi088driver.o"
 "gyro_tx\bmi088middleware.o"
 "gyro_tx\ist8310driver.o"
 "gyro_tx\ist8310driver_middleware.o"
+"gyro_tx\bsp_imu_pwm.o"
+"gyro_tx\bsp_spi.o"
 --strict --scatter "GYRO_TX\GYRO_TX.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

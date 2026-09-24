@@ -12,9 +12,9 @@ extern "C" {
 
 
 #if (GM6020_MOTOR_ID <= 4u)
-#define GM6020_TX_ID        0x1FFu
+#define GM6020_TX_ID        0x1FEu /* 电流控制指令(ID1-4)；电压指令才是0x1FF */
 #else
-#define GM6020_TX_ID        0x2FFu
+#define GM6020_TX_ID        0x2FEu /* 电流控制指令(ID5-7) */
 #endif
 #define GM6020_RX_ID        (0x204u + GM6020_MOTOR_ID)
 
